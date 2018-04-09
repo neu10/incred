@@ -1,0 +1,15 @@
+.container.in-form
+    .text-center
+        img(src='https://www.incred.com/img/logo-new.png',style='max-width: 100px')
+    form(name='loginform')
+        .input-field
+            input.form-control#username(type='text', name='username', [(ngModel)]='user.username', (keyup.enter)='signin(user)')
+            label(for='username') Username
+        .input-field
+            input.form-control#password(type='password',  name='password', [(ngModel)]='user.password', (keyup.enter)='signin(user)')
+            label(for='password') Password
+        .m-login__form-action.row
+            button.btn.btn-primary.col.s5((click)='signin(user)') Sign In
+            button.btn.btn-secondary.col.offset-s1.s5((click) ='cancel()') Cancel
+    .span.green-text(*ngIf='successMessage') {{successMessage}}
+    .span.red-text(*ngIf='errorMessage') {{errorMessage}}
